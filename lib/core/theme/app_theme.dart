@@ -6,7 +6,6 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: primaryBg,
-    primaryColor: buttonColor,
-
+    primaryColor: secondaryBg
   );
 }
