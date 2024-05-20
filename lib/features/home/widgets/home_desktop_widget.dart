@@ -40,7 +40,7 @@ class HomeDesktopWidget extends StatelessWidget {
                       children: [
                         SizedBox(
                           height:30,
-                            child: Image.asset('images/caret.png'),),
+                            child: Image.asset('assets/images/caret.png'),),
                         Gap(10),
                         AnimatedTextKit(
                           animatedTexts: [
@@ -143,7 +143,7 @@ class SocialLink extends StatelessWidget {
         width: 50,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: Image.asset("images/${assetName}.png",),
+          child: Image.asset("assets/images/${assetName}.png",),
         ),
       ),
     );
