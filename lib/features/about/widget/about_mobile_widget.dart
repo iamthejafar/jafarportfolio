@@ -33,7 +33,7 @@ class AboutMobileWidget extends StatelessWidget {
               Text(
                 "About Me",
                 style: GoogleFonts.raleway(
-                  fontSize: 54,
+                  fontSize: 34,
                   fontWeight: FontWeight.w700,
                   color: primaryBg,
                 ),
@@ -42,7 +42,7 @@ class AboutMobileWidget extends StatelessWidget {
               Text(
                 "Who Am I ?",
                 style: GoogleFonts.rajdhani(
-                  fontSize: 34,
+                  fontSize: 24,
                   fontWeight: FontWeight.w400,
                   color: skyBlueColor,
                 ),

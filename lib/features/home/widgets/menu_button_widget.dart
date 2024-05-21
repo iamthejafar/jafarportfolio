@@ -42,6 +42,7 @@ class _MenuButtonState extends State<MenuButton> {
                     ? TextDecoration.underline
                     : TextDecoration.none),
           ),
-        ));
+        ),
+    );
   }
 }

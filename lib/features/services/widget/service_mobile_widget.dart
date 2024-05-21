@@ -16,7 +16,7 @@ class ServiceMobileWidget extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     return Container(
         color: secondaryBg,
-        height: height,
+        height: height * 0.7,
         width: width,
         padding: const EdgeInsets.all(40),
         child: Column(
@@ -25,7 +25,7 @@ class ServiceMobileWidget extends StatelessWidget {
             Text(
               "What I can do ?",
               style: GoogleFonts.rajdhani(
-                fontSize: 34,
+                fontSize: 24,
                 fontWeight: FontWeight.w400,
                 color: skyBlueColor,
               ),

@@ -20,7 +20,7 @@ class ServiceDesktopWidget extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     return Container(
         color: secondaryBg,
-        height: height,
+        height: height * 0.8,
         width: width,
         padding: const EdgeInsets.all(40),
         child: Column(
