@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jafarportfolio/features/about/widget/about_mobile_widget.dart';
+import 'package:jafarportfolio/features/experience/widget/experience_mobile_widget.dart';
 import 'package:jafarportfolio/features/home/widgets/home_mobile_widget.dart';
 import 'package:jafarportfolio/features/project/widgets/project_desktop_widget.dart';
 import 'package:jafarportfolio/features/project/widgets/project_mobile_widget.dart';
@@ -13,6 +14,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/theme/colors.dart';
 import '../../about/widget/about_desktop_widget.dart';
+import '../../experience/widget/experience_desktop_widget.dart';
 import '../widgets/home_desktop_widget.dart';
 import '../widgets/menu_button_widget.dart';
 
@@ -38,38 +40,48 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MenuButton(
-                onPressed: () {
-                  scrollController.animateTo(
-                      duration: const Duration(milliseconds: 200),
+                onPressed: () async {
+                  await scrollController.animateTo(
+                      duration: const Duration(seconds: 1),
                       scrollController.position.minScrollExtent,
                       curve: Curves.decelerate);
                 },
                 title: "Home",
               ),
               MenuButton(
-                onPressed: () {
-                  scrollController.animateTo(
-                      duration: const Duration(milliseconds: 200),
+                onPressed: () async {
+                  await scrollController.animateTo(
+                      duration: const Duration(seconds: 1),
                       height * 0.4,
                       curve: Curves.decelerate);
                 },
                 title: "About",
               ),
               MenuButton(
-                onPressed: () {
-                  scrollController.animateTo(
-                      duration: const Duration(milliseconds: 200),
-                      height * 1.1,
+                onPressed: () async {
+                  await scrollController.animateTo(
+                      duration: const Duration(seconds: 1),
+                      height * 1.2,
                       curve: Curves.decelerate);
                 },
                 title: "Services",
               ),
               MenuButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await scrollController.animateTo(
+                      duration: const Duration(seconds: 1),
+                      height * 1.9,
+                      curve: Curves.decelerate);
+                },
                 title: "Projects",
               ),
               MenuButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await scrollController.animateTo(
+                      duration: const Duration(seconds: 1),
+                      scrollController.position.maxScrollExtent,
+                      curve: Curves.decelerate);
+                },
                 title: "Experience",
               ),
               const Gap(10),
@@ -77,8 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.only(left: 10),
                 child: ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor:
-                          const WidgetStatePropertyAll(greyColor),
+                      backgroundColor: const WidgetStatePropertyAll(greyColor),
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12)))),
                   onPressed: () async {
@@ -89,8 +100,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   child: Text(
                     "Resume",
-                    style: GoogleFonts.ibmPlexMono(
-                        fontSize: 14, color: primaryBg),
+                    style:
+                        GoogleFonts.ibmPlexMono(fontSize: 14, color: primaryBg),
                   ),
                 ),
               )
@@ -118,38 +129,49 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       MenuButton(
-                        onPressed: () {
-                          scrollController.animateTo(
-                              duration: const Duration(milliseconds: 200),
+                        onPressed: () async {
+                          await scrollController.animateTo(
+                              duration: const Duration(seconds: 1),
                               scrollController.position.minScrollExtent,
                               curve: Curves.decelerate);
                         },
                         title: "Home",
                       ),
                       MenuButton(
-                        onPressed: () {
-                          scrollController.animateTo(
-                              duration: const Duration(milliseconds: 200),
+                        onPressed: () async {
+                          await scrollController.animateTo(
+                              duration: const Duration(seconds: 1),
                               height,
                               curve: Curves.decelerate);
                         },
                         title: "About",
                       ),
                       MenuButton(
-                        onPressed: () {
-                          scrollController.animateTo(
-                              duration: const Duration(milliseconds: 200),
+                        onPressed: () async {
+                          await scrollController.animateTo(
+                              duration: const Duration(seconds: 1),
                               height * 1.9,
                               curve: Curves.decelerate);
                         },
                         title: "Services",
                       ),
                       MenuButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          await scrollController.animateTo(
+                              duration: const Duration(seconds: 1),
+                              height * 2.6,
+                              curve: Curves.decelerate);
+                        },
                         title: "Projects",
                       ),
                       MenuButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          await scrollController.animateTo(
+                              duration: const Duration(seconds: 1),
+                              scrollController.position.maxScrollExtent -
+                                  height * 0.2,
+                              curve: Curves.decelerate);
+                        },
                         title: "Experience",
                       ),
                       ElevatedButton(
@@ -158,8 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const WidgetStatePropertyAll(greyColor),
                             shape: WidgetStatePropertyAll(
                                 RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.circular(12)))),
+                                    borderRadius: BorderRadius.circular(12)))),
                         onPressed: () async {
                           final url = Uri.parse(
                               "https://drive.google.com/file/d/1HAaKhzjC8Pt3cqq89pP77T65VpgfDnvC/view?usp=sharing");
@@ -207,9 +228,16 @@ class _HomeScreenState extends State<HomeScreen> {
             tablet: (context) => const ProjectDesktopWidget(),
             desktop: (context) => const ProjectDesktopWidget(),
           ),
+
+          // Experience
+          ScreenTypeLayout.builder(
+            mobile: (context) => const ExperienceMobileWidget(),
+            tablet: (context) => const ExperienceDesktopWidget(),
+            desktop: (context) => const ExperienceDesktopWidget(),
+          ),
+
         ],
       ),
     );
   }
 }
-
