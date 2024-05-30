@@ -157,14 +157,6 @@ class ExperienceMobileWidget extends StatelessWidget {
               )
             ],
           ),
-          const Gap(20),
-          Text(
-            "Developed in Flutter with ❤️",
-            style: GoogleFonts.ibmPlexMono(
-              fontSize: 14,
-              color: brownColor,
-            ),
-          )
         ],
       ),
     );

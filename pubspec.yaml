@@ -21,6 +21,8 @@ dependencies:
   url_launcher: ^6.2.6
   rive: ^0.13.4
   flip_card: ^0.7.0
+  animated_snack_bar: ^0.4.0
+  flutter_carousel_widget: ^2.2.0
 
 dev_dependencies:
   flutter_test:

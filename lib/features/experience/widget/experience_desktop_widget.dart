@@ -158,13 +158,7 @@ class ExperienceDesktopWidget extends StatelessWidget {
               )
             ],
           ),
-          Text(
-            "Developed in Flutter with ❤️",
-            style: GoogleFonts.ibmPlexMono(
-              fontSize: 18,
-              color: brownColor,
-            ),
-          )
+
         ],
       ),
     );

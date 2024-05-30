@@ -6,8 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/theme/colors.dart';
 
-class ServiceMobileWidget extends StatelessWidget {
-  const ServiceMobileWidget({
+class ServiceTabletWidget extends StatelessWidget {
+  const ServiceTabletWidget({
     super.key,
   });
 
@@ -16,36 +16,39 @@ class ServiceMobileWidget extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Container(
-        color: secondaryBg,
-        height: height * 0.7,
-        width: width,
-        padding: const EdgeInsets.all(40),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "What I can do ?",
-              style: GoogleFonts.rajdhani(
-                fontSize: 24,
-                fontWeight: FontWeight.w400,
-                color: skyBlueColor,
-              ),
+      color: secondaryBg,
+      height: height * 0.7,
+      width: width,
+      padding: const EdgeInsets.all(40),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "What I can do ?",
+            style: GoogleFonts.rajdhani(
+              fontSize: 24,
+              fontWeight: FontWeight.w400,
+              color: skyBlueColor,
             ),
-            const Gap(20),
+          ),
+          const Gap(20),
 
 
-            Center(
-              child: SizedBox(
+          Center(
+            child: SizedBox(
                 height: height * 0.40,
+                width: width,
                 child:  FlutterCarousel(
                     options: CarouselOptions(
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
                       indicatorMargin: 10,
-                      viewportFraction: 0.9,
+                      viewportFraction: 20,
                       showIndicator: true,
                       floatingIndicator: false,
                       slideIndicator: const CircularSlideIndicator(
-                        currentIndicatorColor: brownColor,
-                        indicatorBackgroundColor: greyColor
+                          currentIndicatorColor: brownColor,
+                          indicatorBackgroundColor: greyColor
                       ),
                     ),
                     items: [
@@ -54,7 +57,7 @@ class ServiceMobileWidget extends StatelessWidget {
                         child: FlipCard(
                           front: SizedBox(
                             height: height * 0.40,
-                            width: 290,
+                            width: width * 0.4,
                             child: Container(
                               decoration: BoxDecoration(
                                   color: Colors.white,
@@ -83,7 +86,7 @@ class ServiceMobileWidget extends StatelessWidget {
                           ),
                           back: SizedBox(
                             height: height * 0.40,
-                            width: 290,
+                            width: width * 0.4,
                             child: Container(
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
@@ -119,7 +122,7 @@ class ServiceMobileWidget extends StatelessWidget {
                         child: FlipCard(
                           front: SizedBox(
                             height: height * 0.40,
-                            width: 290,
+                            width: width * 0.4,
 
                             child: Container(
                               decoration: BoxDecoration(
@@ -148,7 +151,7 @@ class ServiceMobileWidget extends StatelessWidget {
                           ),
                           back: SizedBox(
                             height: height * 0.40,
-                            width: 290,
+                            width: width * 0.4,
                             child: Container(
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
@@ -186,7 +189,7 @@ class ServiceMobileWidget extends StatelessWidget {
                         child: FlipCard(
                           front: SizedBox(
                             height: height * 0.40,
-                            width: 290,
+                            width: width * 0.4,
                             child: Container(
                               decoration: BoxDecoration(
                                   color: Colors.white,
@@ -214,7 +217,7 @@ class ServiceMobileWidget extends StatelessWidget {
                           ),
                           back: SizedBox(
                             height: height * 0.40,
-                            width: 290,
+                            width: width * 0.4,
                             child: Container(
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
@@ -242,9 +245,9 @@ class ServiceMobileWidget extends StatelessWidget {
                       ),
                     ]
                 )
-              ),
-            )
-          ],
-        ),);
+            ),
+          )
+        ],
+      ),);
   }
 }
