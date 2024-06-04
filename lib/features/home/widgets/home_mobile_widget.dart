@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jafarportfolio/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/theme/colors.dart';
@@ -112,9 +113,7 @@ class HomeMobileWidget extends StatelessWidget {
                   tag: "profile",
                   child: CircleAvatar(
                     radius: height * 0.1,
-                    backgroundImage: Image.network(
-                        "https://media.licdn.com/dms/image/D4D03AQGkMuI3phuvFg/profile-displayphoto-shrink_800_800/0/1710682345759?e=1721865600&v=beta&t=xrqd5I1Z-HJsh59x7gIDvgFkBQ5xCJ996OAXXBrOJLw")
-                        .image,
+                    backgroundImage: Image.asset(profileString).image,
                   ),
                 ),
               )

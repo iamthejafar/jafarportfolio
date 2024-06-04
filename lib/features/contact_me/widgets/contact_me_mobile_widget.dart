@@ -21,6 +21,8 @@ class _ContactMeMobileWidgetState extends State<ContactMeMobileWidget> {
   final _emailController = TextEditingController();
   final _messageController = TextEditingController();
 
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -127,11 +129,15 @@ class _ContactMeMobileWidgetState extends State<ContactMeMobileWidget> {
                       borderRadius: BorderRadius.circular(12)))),
               onPressed: () async {
                 if (_formKey.currentState?.validate() ?? false) {
-                  // Form is valid, proceed with sending email
-                  _submitForm();
+                  setState(() => isLoading = true);
+                 await _submitForm();
+                  setState(() => isLoading = false);
                 }
               },
-              child: Text(
+              child: isLoading ? SizedBox(
+                height: 20,
+                  width: 20,
+                  child: CircularProgressIndicator(strokeWidth: 2.0,color: brownColor,)) :  Text(
                 "Submit",
                 style: GoogleFonts.ibmPlexMono(fontSize: 14, color: primaryBg),
               ),
@@ -142,7 +148,7 @@ class _ContactMeMobileWidgetState extends State<ContactMeMobileWidget> {
     );
   }
 
-  void _submitForm() async {
+  Future _submitForm() async {
     final name = _nameController.text;
     final email = _emailController.text;
     final message = _messageController.text;

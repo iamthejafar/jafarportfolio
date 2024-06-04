@@ -21,6 +21,8 @@ class _ContactMeDesktopWidgetState extends State<ContactMeDesktopWidget> {
   final _emailController = TextEditingController();
   final _messageController = TextEditingController();
 
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -127,11 +129,17 @@ class _ContactMeDesktopWidgetState extends State<ContactMeDesktopWidget> {
                       borderRadius: BorderRadius.circular(12)))),
               onPressed: () async {
                 if (_formKey.currentState?.validate() ?? false) {
-                  // Form is valid, proceed with sending email
-                  _submitForm();
+                  if (_formKey.currentState?.validate() ?? false) {
+                    setState(() => isLoading = true);
+                    await _submitForm();
+                    setState(() => isLoading = false);
+                  }
                 }
               },
-              child: Text(
+              child: isLoading ? SizedBox(
+                  height: 20,
+                  width: 20,
+                  child: CircularProgressIndicator(strokeWidth: 2.0,color: brownColor,)) :  Text(
                 "Submit",
                 style: GoogleFonts.ibmPlexMono(fontSize: 14, color: primaryBg),
               ),
@@ -142,16 +150,11 @@ class _ContactMeDesktopWidgetState extends State<ContactMeDesktopWidget> {
     );
   }
 
-  void _submitForm() {
+  Future _submitForm() async {
     final name = _nameController.text;
     final email = _emailController.text;
     final message = _messageController.text;
 
-    // Call the EmailJS service to send email
-    sendEmailNotification(name, email, message);
-  }
-
-  void sendEmailNotification(String name, String email, String message) async {
     const serviceId = 'gmailService';
     const templateId = 'portfolio_template';
     const userId = 'Bq-zPCpra1coHvDvS';
@@ -175,6 +178,9 @@ class _ContactMeDesktopWidgetState extends State<ContactMeDesktopWidget> {
 
     if (response.statusCode == 200) {
       if(context.mounted){
+        _nameController.clear();
+        _emailController.clear();
+        _messageController.clear();
         AnimatedSnackBar.rectangle(
           'Success',
           'Message successfully sent !',
@@ -197,5 +203,6 @@ class _ContactMeDesktopWidgetState extends State<ContactMeDesktopWidget> {
       }
     }
   }
+
 }
 

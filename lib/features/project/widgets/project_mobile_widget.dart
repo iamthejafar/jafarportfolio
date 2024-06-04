@@ -216,7 +216,7 @@ class _ProjectMobileWidgetState extends State<ProjectMobileWidget> {
                           },
                           icon: const Icon(
                             CupertinoIcons.arrow_left,
-                            size: 30,
+                            size: 15,
                             color: greyColor,
                           )),
                       IconButton(
@@ -224,7 +224,9 @@ class _ProjectMobileWidgetState extends State<ProjectMobileWidget> {
                           int page = 0;
                           if(widget.pageController.page != null){
                             if(widget.pageController.page != 1){
-                              page = int.parse(widget.pageController.page.toString()) + 1;
+                              final val =  int.tryParse(widget.pageController.page.toString());
+
+                              if(val != null) page = val +1;
                             }
                           }
 
@@ -235,7 +237,7 @@ class _ProjectMobileWidgetState extends State<ProjectMobileWidget> {
                         },
                         icon: const Icon(
                           CupertinoIcons.arrow_right,
-                          size: 30,
+                          size: 15,
                           color: greyColor,
                         ),),
                     ],

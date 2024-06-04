@@ -7,6 +7,7 @@ import 'package:jafarportfolio/features/about/widget/about_mobile_widget.dart';
 import 'package:jafarportfolio/features/contact_me/widgets/contact_me_mobile_widget.dart';
 import 'package:jafarportfolio/features/experience/widget/experience_mobile_widget.dart';
 import 'package:jafarportfolio/features/home/widgets/home_mobile_widget.dart';
+import 'package:jafarportfolio/features/home/widgets/home_tablet_widget.dart';
 import 'package:jafarportfolio/features/project/widgets/project_desktop_widget.dart';
 import 'package:jafarportfolio/features/project/widgets/project_mobile_widget.dart';
 import 'package:jafarportfolio/features/project/widgets/project_tablet_widget.dart';
@@ -143,6 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ScreenTypeLayout.builder(
                 mobile: (context) => const HomeMobileWidget(),
                 desktop: (context) => const HomeDesktopWidget(),
+                tablet: (context) => const HomeTabletWidget(),
               ),
 
               // About
