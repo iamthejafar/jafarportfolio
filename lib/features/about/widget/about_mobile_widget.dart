@@ -14,7 +14,7 @@ class AboutMobileWidget extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     return Container(
       color: secondaryBg,
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Stack(
         alignment: Alignment.center,
         children: [

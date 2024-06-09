@@ -25,6 +25,7 @@ class _ProjectDesktopWidgetState extends State<ProjectDesktopWidget> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Container(
+      color: primaryBg.withOpacity(0.5),
       padding: const EdgeInsets.all(30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
