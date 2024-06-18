@@ -33,13 +33,29 @@ class _ProjectMobileWidgetState extends State<ProjectMobileWidget> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Projects",
-            style: GoogleFonts.raleway(
-              fontSize: 34,
-              fontWeight: FontWeight.w700,
-              color: secondaryBg,
-            ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Projects",
+                style: GoogleFonts.raleway(
+                  fontSize: 34,
+                  fontWeight: FontWeight.w700,
+                  color: secondaryBg,
+                ),
+              ),
+              MenuButton(
+                title: "View More",
+                onPressed: () async {
+                  final url = Uri.parse("https://github.com/iamthejafar");
+                  if (await canLaunchUrl(url)) {
+                    await launchUrl(url);
+                  }
+                },
+              )
+            ],
           ),
           const Gap(20),
           SizedBox(
@@ -190,6 +206,71 @@ class _ProjectMobileWidgetState extends State<ProjectMobileWidget> {
 
                       ],
                     ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Flash Chat",
+                                      style: GoogleFonts.raleway(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w700,
+                                        color: secondaryBg,
+                                      ),
+                                    ),
+                                    Text(
+                                      "A Simple chatting application, built with Flutter, having Firebase as backend, Supports one to one and group chat, Equipped with all the basic functionalities of chatting application.",
+                                      style: GoogleFonts.ibmPlexMono(
+                                        color: greyColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  MenuButton(
+                                      title: "Github",
+                                      onPressed: () async {
+                                        final url = Uri.parse(
+                                            "https://github.com/iamthejafar/Flashchat");
+                                        if (await canLaunchUrl(url)) {
+                                          await launchUrl(url);
+                                        }
+                                      }),
+
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: SizedBox(
+                            width: width,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                height: height * 0.4,
+                                "assets/images/flashchat.png",
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
+                          ),
+                        ),
+
+                      ],
+                    ),
 
                   ],
                 ),
@@ -202,7 +283,7 @@ class _ProjectMobileWidgetState extends State<ProjectMobileWidget> {
                     children: [
                       IconButton(
                           onPressed: () {
-                            int page = 1;
+                            int page = widget.pageController.positions.length+1;
                             if(widget.pageController.page != null){
                               if(widget.pageController.page != 0){
                                 page = int.parse(widget.pageController.page.toString()) - 1;
@@ -223,7 +304,7 @@ class _ProjectMobileWidgetState extends State<ProjectMobileWidget> {
                         onPressed: () {
                           int page = 0;
                           if(widget.pageController.page != null){
-                            if(widget.pageController.page != 1){
+                            if(widget.pageController.page != widget.pageController.positions.length+1){
                               final val =  int.tryParse(widget.pageController.page.toString());
 
                               if(val != null) page = val +1;

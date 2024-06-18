@@ -35,7 +35,7 @@ class _MenuButtonState extends State<MenuButton> {
           child: Text(
             widget.title,
             style: GoogleFonts.ibmPlexMono(
-                fontSize: 16,
+                fontSize: 18,
                 color: greyColor,
                 decorationColor: greyColor,
                 decoration: isHovering

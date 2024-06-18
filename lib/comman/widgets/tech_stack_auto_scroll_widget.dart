@@ -10,9 +10,11 @@ import '../../core/theme/colors.dart';
 
 class TechStackAutoScrollWidget extends StatefulWidget {
   const TechStackAutoScrollWidget({
-    super.key, required this.imageHeight,});
+    super.key, required this.imageHeight, this.titleFontSize = 24,  this.scrollSeconds = 10,});
 
   final double imageHeight;
+  final double titleFontSize;
+  final int scrollSeconds;
 
   @override
   State<TechStackAutoScrollWidget> createState() => _TechStackAutoScrollWidgetState();
@@ -71,14 +73,13 @@ class _TechStackAutoScrollWidgetState extends State<TechStackAutoScrollWidget> {
   }
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: widget.titleFontSize != 24 ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         Text(
           "Tech Stack",
           style: GoogleFonts.rajdhani(
-            fontSize: 24,
+            fontSize: widget.titleFontSize,
             fontWeight: FontWeight.w500,
             color: skyBlueColor,
           ),
@@ -92,7 +93,7 @@ class _TechStackAutoScrollWidgetState extends State<TechStackAutoScrollWidget> {
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: EdgeInsets.symmetric(horizontal: widget.titleFontSize != 24 ? 20 : 10),
                 child: SizedBox(
                   height: widget.imageHeight,
                   child: Image.asset(

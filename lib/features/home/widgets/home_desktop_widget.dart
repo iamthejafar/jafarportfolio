@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../comman/widgets/custom_animated_grid.dart';
 import '../../../constants.dart';
 import '../../../core/theme/colors.dart';
 import '../screens/home_screen.dart';
@@ -18,6 +19,7 @@ class HomeDesktopWidget extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Stack(
+      alignment: Alignment.bottomCenter,
       children: [
         const CustomAnimatedGrid(),
 

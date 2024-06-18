@@ -19,10 +19,10 @@ class ServiceCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterCarousel(
       options: CarouselOptions(
-        autoPlayAnimationDuration: Duration(milliseconds: 800),
+        autoPlayAnimationDuration: Duration(milliseconds: 1000),
         autoPlay: true,
         autoPlayInterval: const Duration(seconds: 3),
-        indicatorMargin: 10,
+        indicatorMargin: 6,
         viewportFraction: 20,
         showIndicator: true,
         floatingIndicator: false,

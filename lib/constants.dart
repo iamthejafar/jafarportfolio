@@ -1,5 +1,4 @@
-const resumeString = "https://firebasestorage.googleapis.com/v0/b/jafarjalali-128.appspot.com/o/Jafar's%20Resume.pdf?alt=media&token=7ec97de4-1c8f-457f-b4f7-8863a08fd5e0";
-
+const resumeString = "https://firebasestorage.googleapis.com/v0/b/jafarjalali-space.appspot.com/o/Jafar's%20Resume.pdf?alt=media&token=fe6619f6-372c-4181-a5e2-662a43862129";
 
 const profileString = "assets/images/profile_pic.jpg";
 

@@ -105,7 +105,7 @@ class ExperienceDesktopWidget extends StatelessWidget {
                           Align(
                             alignment: Alignment.bottomRight,
                             child: Text(
-                              "Apr 2024 - Jan 2024",
+                              "Apr 2023 - Jan 2024",
                               style: GoogleFonts.ibmPlexMono(
                                 fontSize: 14,
                                 color: greyColor,

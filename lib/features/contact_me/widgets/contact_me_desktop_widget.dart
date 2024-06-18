@@ -2,11 +2,13 @@ import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hovering/hovering.dart';
 import "package:http/http.dart" as http;
 import 'dart:convert';
 
 import 'package:jafarportfolio/core/theme/colors.dart';
 
+import '../../../comman/widgets/custome_text_field.dart';
 
 class ContactMeDesktopWidget extends StatefulWidget {
   const ContactMeDesktopWidget({super.key});
@@ -42,25 +44,9 @@ class _ContactMeDesktopWidgetState extends State<ContactMeDesktopWidget> {
               ),
             ),
             const Gap(20),
-            TextFormField(
-              controller: _nameController,
-              style: GoogleFonts.ibmPlexMono(
-                  fontSize: 16, fontWeight: FontWeight.w700, color: brownColor),
-              decoration: InputDecoration(
-                errorStyle: GoogleFonts.poppins(color: secondaryBg),
-                filled: true,
-                hintText: 'Name',
-                fillColor: secondaryBg,
-                border: const OutlineInputBorder(),
-                focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: lightGreenColor,
-                    )),
-                hintStyle: GoogleFonts.ibmPlexMono(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: greyColor),
-              ),
+            CustomTextField(
+              nameController: _nameController,
+              hintText: "Name",
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your name';
@@ -69,23 +55,9 @@ class _ContactMeDesktopWidgetState extends State<ContactMeDesktopWidget> {
               },
             ),
             const Gap(20),
-            TextFormField(
-              controller: _emailController,
-              style: GoogleFonts.ibmPlexMono(
-                  fontSize: 16, fontWeight: FontWeight.w700, color: brownColor),
-              decoration: InputDecoration(
-                errorStyle: GoogleFonts.poppins(color: secondaryBg),
-                filled: true,
-                hintText: 'Email',
-                fillColor: secondaryBg,
-                border: const OutlineInputBorder(),
-                focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: lightGreenColor)),
-                hintStyle: GoogleFonts.ibmPlexMono(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: greyColor),
-              ),
+            CustomTextField(
+              nameController: _emailController,
+              hintText: "Email",
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your email';
@@ -96,52 +68,67 @@ class _ContactMeDesktopWidgetState extends State<ContactMeDesktopWidget> {
               },
             ),
             const Gap(20),
-            TextFormField(
-              controller: _messageController,
-              style: GoogleFonts.ibmPlexMono(
-                  fontSize: 16, fontWeight: FontWeight.w700, color: brownColor),
-              decoration: InputDecoration(
-                errorStyle: GoogleFonts.poppins(color: secondaryBg),
-                filled: true,
-                hintText: 'Message',
-                fillColor: secondaryBg,
-                border: const OutlineInputBorder(),
-                focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: lightGreenColor)),
-                hintStyle: GoogleFonts.ibmPlexMono(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: greyColor),
-              ),
-              maxLines: 4,
+            CustomTextField(
+              nameController: _messageController,
+              hintText: "Message",
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your message';
                 }
                 return null;
               },
+              maxLines: 4,
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor: const WidgetStatePropertyAll(lightBlueColor),
-                  shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12)))),
-              onPressed: () async {
-                if (_formKey.currentState?.validate() ?? false) {
-                  if (_formKey.currentState?.validate() ?? false) {
-                    setState(() => isLoading = true);
-                    await _submitForm();
-                    setState(() => isLoading = false);
-                  }
-                }
-              },
-              child: isLoading ? SizedBox(
-                  height: 20,
-                  width: 20,
-                  child: CircularProgressIndicator(strokeWidth: 2.0,color: brownColor,)) :  Text(
-                "Submit",
-                style: GoogleFonts.ibmPlexMono(fontSize: 14, color: primaryBg),
+            SizedBox(
+              height: 40,
+              width: 120,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: InkWell(
+                      onTap: () async {
+                        if (_formKey.currentState?.validate() ?? false) {
+                          if (_formKey.currentState?.validate() ?? false) {
+                            setState(() => isLoading = true);
+                            await _submitForm();
+                            setState(() => isLoading = false);
+                          }
+                        }
+                      },
+                      child: HoverAnimatedContainer(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: greyColor,
+                        ),
+                        hoverDecoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: greyColor,
+                        ),
+                        height: 30,
+                        hoverHeight: 35,
+                        width: 100,
+                        hoverWidth: 105,
+                        alignment: Alignment.center,
+                        child: isLoading
+                            ? const SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2.0,
+                                  color: brownColor,
+                                ))
+                            : Text(
+                                "Submit",
+                                style: GoogleFonts.ibmPlexMono(
+                                    fontSize: 14, color: primaryBg),
+                              ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -177,7 +164,7 @@ class _ContactMeDesktopWidgetState extends State<ContactMeDesktopWidget> {
     );
 
     if (response.statusCode == 200) {
-      if(context.mounted){
+      if (context.mounted) {
         _nameController.clear();
         _emailController.clear();
         _messageController.clear();
@@ -191,7 +178,7 @@ class _ContactMeDesktopWidgetState extends State<ContactMeDesktopWidget> {
         );
       }
     } else {
-      if(context.mounted){
+      if (context.mounted) {
         AnimatedSnackBar.rectangle(
           'Error',
           'Something went wrong.',
@@ -203,6 +190,4 @@ class _ContactMeDesktopWidgetState extends State<ContactMeDesktopWidget> {
       }
     }
   }
-
 }
-
