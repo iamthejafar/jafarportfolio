@@ -7,10 +7,11 @@ import '../../../core/theme/colors.dart';
 
 
 class MenuButton extends StatefulWidget {
-  const MenuButton({super.key, required this.title, required this.onPressed});
+  const MenuButton({super.key, required this.title, required this.onPressed, this.showUnderLine = false});
 
   final String title;
   final void Function() onPressed;
+  final bool showUnderLine;
   @override
   State<MenuButton> createState() => _MenuButtonState();
 }
@@ -38,7 +39,7 @@ class _MenuButtonState extends State<MenuButton> {
                 fontSize: 18,
                 color: greyColor,
                 decorationColor: greyColor,
-                decoration: isHovering
+                decoration: widget.showUnderLine ? TextDecoration.underline : isHovering
                     ? TextDecoration.underline
                     : TextDecoration.none),
           ),

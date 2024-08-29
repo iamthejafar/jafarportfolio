@@ -3,7 +3,9 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
 
+import '../../../comman/helper_functions.dart';
 import '../../../core/theme/colors.dart';
+import '../../home/widgets/menu_button_widget.dart';
 
 class AboutMobileWidget extends StatelessWidget {
   const AboutMobileWidget({super.key});
@@ -30,13 +32,25 @@ class AboutMobileWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Text(
-                "About Me",
-                style: GoogleFonts.raleway(
-                  fontSize: 34,
-                  fontWeight: FontWeight.w700,
-                  color: primaryBg,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "About Me",
+                    style: GoogleFonts.raleway(
+                      fontSize: 34,
+                      fontWeight: FontWeight.w700,
+                      color: primaryBg,
+                    ),
+                  ),
+                  MenuButton(
+                    title: "Resume",
+                    showUnderLine: true,
+                    onPressed: () async {
+                      await openResume();
+                    },
+                  )
+                ],
               ),
               Gap(10),
               Text(

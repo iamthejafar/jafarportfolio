@@ -48,6 +48,7 @@ class _ProjectMobileWidgetState extends State<ProjectMobileWidget> {
               ),
               MenuButton(
                 title: "View More",
+                showUnderLine: true,
                 onPressed: () async {
                   final url = Uri.parse("https://github.com/iamthejafar");
                   if (await canLaunchUrl(url)) {

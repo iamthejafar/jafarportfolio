@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hovering/hovering.dart';
-import 'package:jafarportfolio/constants.dart';
+import 'package:jafarportfolio/comman/helper_functions.dart';
 import 'package:jafarportfolio/features/about/widget/about_mobile_widget.dart';
 import 'package:jafarportfolio/features/contact_me/widgets/contact_me_mobile_widget.dart';
 import 'package:jafarportfolio/features/experience/widget/experience_mobile_widget.dart';
@@ -19,7 +17,6 @@ import 'package:jafarportfolio/features/services/widget/service_desktop_widget.d
 import 'package:jafarportfolio/features/services/widget/service_mobile_widget.dart';
 import 'package:jafarportfolio/features/services/widget/service_tablet_widget.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/theme/colors.dart';
 import '../../about/widget/about_desktop_widget.dart';
@@ -57,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 50,
                     child: Image.asset("assets/images/logo.png")),
                 onTap: () async {
+                  if(context.mounted)  Navigator.of(context).pop();
                   await scrollController.animateTo(
                       duration: const Duration(seconds: 1),
                       scrollController.position.minScrollExtent,
@@ -68,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Home",
               iconData: Icons.house,
               onTap: () async {
+                if(context.mounted)  Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     scrollController.position.minScrollExtent,
@@ -78,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "About",
               iconData: CupertinoIcons.person_fill,
               onTap: () async {
+                if(context.mounted)  Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     height * 0.4,
@@ -88,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Services",
               iconData: CupertinoIcons.briefcase_fill,
               onTap: () async {
+                if(context.mounted)  Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     height * 1.1,
@@ -98,6 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Projects",
               iconData: CupertinoIcons.wrench_fill,
               onTap: () async {
+                if(context.mounted)  Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     height * 1.9,
@@ -108,6 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Experience",
               iconData: CupertinoIcons.gear_solid,
               onTap: () async {
+                if(context.mounted)  Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     height * 2.6,
@@ -118,6 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Contact Me",
               iconData: CupertinoIcons.mail_solid,
               onTap: () async {
+                if(context.mounted)  Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     scrollController.position.maxScrollExtent,
@@ -138,8 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Center(
                       child: InkWell(
                         onTap: () async {
-                          final url = Uri.parse(resumeString);
-                          if (await canLaunchUrl(url)) await launchUrl(url);
+                          await openResume();
                         },
                         child: HoverAnimatedContainer(
                           decoration: BoxDecoration(
@@ -356,8 +359,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Center(
                           child: InkWell(
                             onTap: () async {
-                              final url = Uri.parse(resumeString);
-                              if (await canLaunchUrl(url)) await launchUrl(url);
+                              await openResume();
                             },
                             child: HoverAnimatedContainer(
                               decoration: BoxDecoration(
