@@ -47,14 +47,14 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Padding(
               padding:
-                  const EdgeInsets.symmetric(vertical: 20.0,horizontal: 20),
+                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20),
               child: InkWell(
                 child: SizedBox(
-                    height: 55,
-                    width: 50,
-                    child: Image.asset("assets/images/logo.png")),
+                    height: 90,
+                    width: 90,
+                    child: Image.asset("assets/images/logo1.png")),
                 onTap: () async {
-                  if(context.mounted)  Navigator.of(context).pop();
+                  if (context.mounted) Navigator.of(context).pop();
                   await scrollController.animateTo(
                       duration: const Duration(seconds: 1),
                       scrollController.position.minScrollExtent,
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Home",
               iconData: Icons.house,
               onTap: () async {
-                if(context.mounted)  Navigator.of(context).pop();
+                if (context.mounted) Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     scrollController.position.minScrollExtent,
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "About",
               iconData: CupertinoIcons.person_fill,
               onTap: () async {
-                if(context.mounted)  Navigator.of(context).pop();
+                if (context.mounted) Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     height * 0.4,
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Services",
               iconData: CupertinoIcons.briefcase_fill,
               onTap: () async {
-                if(context.mounted)  Navigator.of(context).pop();
+                if (context.mounted) Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     height * 1.1,
@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Projects",
               iconData: CupertinoIcons.wrench_fill,
               onTap: () async {
-                if(context.mounted)  Navigator.of(context).pop();
+                if (context.mounted) Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     height * 1.9,
@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Experience",
               iconData: CupertinoIcons.gear_solid,
               onTap: () async {
-                if(context.mounted)  Navigator.of(context).pop();
+                if (context.mounted) Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     height * 2.6,
@@ -121,14 +121,13 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Contact Me",
               iconData: CupertinoIcons.mail_solid,
               onTap: () async {
-                if(context.mounted)  Navigator.of(context).pop();
+                if (context.mounted) Navigator.of(context).pop();
                 await scrollController.animateTo(
                     duration: const Duration(seconds: 1),
                     scrollController.position.maxScrollExtent,
                     curve: Curves.decelerate);
               },
             ),
-
             const Gap(10),
             Padding(
               padding: const EdgeInsets.only(left: 10),
@@ -185,9 +184,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
                   child: InkWell(
                     child: SizedBox(
-                        height: 55,
-                        width: 50,
-                        child: Image.asset("assets/images/logo.png")),
+                        height: 90,
+                        width: 90,
+                        child: Image.asset(
+                          "assets/images/logo1.png",
+                          color: secondaryBg,
+                        )),
                     onTap: () async {
                       await scrollController.animateTo(
                           duration: const Duration(seconds: 1),
@@ -285,9 +287,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   InkWell(
                     child: SizedBox(
-                        height: 65,
-                        width: 60,
-                        child: Image.asset("assets/images/logo.png")),
+                        height: 80,
+                        width: 200,
+                        child: Image.asset(
+                          "assets/images/logo1.png",
+                          color: secondaryBg,
+                        )),
                     onTap: () async {
                       await scrollController.animateTo(
                           duration: const Duration(seconds: 1),
@@ -424,5 +429,3 @@ class DrawerListTile extends StatelessWidget {
     );
   }
 }
-
-

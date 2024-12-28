@@ -27,8 +27,9 @@ class ServiceCarousel extends StatelessWidget {
         showIndicator: true,
         floatingIndicator: false,
         slideIndicator: const CircularSlideIndicator(
-            currentIndicatorColor: brownColor,
-            indicatorBackgroundColor: greyColor),
+            // currentIndicatorColor: brownColor,
+            // indicatorBackgroundColor: greyColor
+        ),
       ),
       items: [
         Container(

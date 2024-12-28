@@ -8,11 +8,11 @@ import '../../../comman/widgets/custom_animated_grid.dart';
 import '../../../constants.dart';
 import '../../../core/theme/colors.dart';
 import '../screens/home_screen.dart';
+
 class HomeDesktopWidget extends StatelessWidget {
   const HomeDesktopWidget({
     super.key,
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,6 @@ class HomeDesktopWidget extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       children: [
         const CustomAnimatedGrid(),
-
         Container(
           height: height,
           child: Column(
@@ -35,11 +34,13 @@ class HomeDesktopWidget extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('I am Jafar Jalali',
-                          style: GoogleFonts.raleway(
-                              fontSize: 64,
-                              fontWeight: FontWeight.w700,
-                              color: secondaryBg),),
+                      Text(
+                        'I am Jafar Jalali',
+                        style: GoogleFonts.raleway(
+                            fontSize: 64,
+                            fontWeight: FontWeight.w700,
+                            color: secondaryBg),
+                      ),
                       DefaultTextStyle(
                         style: GoogleFonts.ibmPlexMono(
                             fontSize: 16, color: greyColor),
@@ -47,16 +48,15 @@ class HomeDesktopWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             SizedBox(
-                              height:30,
-                                child: Image.asset('assets/images/caret.png'),),
+                              height: 30,
+                              child: Image.asset('assets/images/caret.png'),
+                            ),
                             Gap(10),
                             AnimatedTextKit(
                               animatedTexts: [
-                                TypewriterAnimatedText(
-                                    'A Mobile App Developer',
+                                TypewriterAnimatedText('A Mobile App Developer',
                                     speed: Duration(milliseconds: 100)),
-                                TypewriterAnimatedText(
-                                    'Specialized in Flutter',
+                                TypewriterAnimatedText('Specialized in Flutter',
                                     speed: Duration(milliseconds: 100)),
                               ],
                             ),
@@ -69,9 +69,10 @@ class HomeDesktopWidget extends StatelessWidget {
                           SocialLink(
                             assetName: "github",
                             onTap: () async {
-                              final url = Uri.parse("https://github.com/iamthejafar");
+                              final url =
+                                  Uri.parse("https://github.com/iamthejafar");
 
-                              if(await canLaunchUrl(url)){
+                              if (await canLaunchUrl(url)) {
                                 await launchUrl(url);
                               }
                             },
@@ -80,9 +81,10 @@ class HomeDesktopWidget extends StatelessWidget {
                           SocialLink(
                             assetName: "linkedin",
                             onTap: () async {
-                              final url = Uri.parse("https://www.linkedin.com/in/jafarjalali128/");
+                              final url = Uri.parse(
+                                  "https://www.linkedin.com/in/jafarjalali128/");
 
-                              if(await canLaunchUrl(url)){
+                              if (await canLaunchUrl(url)) {
                                 await launchUrl(url);
                               }
                             },
@@ -91,9 +93,10 @@ class HomeDesktopWidget extends StatelessWidget {
                           SocialLink(
                             assetName: "leetcode",
                             onTap: () async {
-                              final url = Uri.parse("https://leetcode.com/u/jafarjalali128/");
+                              final url = Uri.parse(
+                                  "https://leetcode.com/u/jafarjalali128/");
 
-                              if(await canLaunchUrl(url)){
+                              if (await canLaunchUrl(url)) {
                                 await launchUrl(url);
                               }
                             },
@@ -102,9 +105,10 @@ class HomeDesktopWidget extends StatelessWidget {
                           SocialLink(
                             assetName: "x",
                             onTap: () async {
-                              final url = Uri.parse("https://x.com/iamthejafar");
+                              final url =
+                                  Uri.parse("https://x.com/iamthejafar");
 
-                              if(await canLaunchUrl(url)){
+                              if (await canLaunchUrl(url)) {
                                 await launchUrl(url);
                               }
                             },
@@ -118,7 +122,6 @@ class HomeDesktopWidget extends StatelessWidget {
                     child: CircleAvatar(
                       radius: height * 0.2,
                       backgroundImage: Image.asset(profileString).image,
-
                     ),
                   )
                 ],
@@ -133,7 +136,9 @@ class HomeDesktopWidget extends StatelessWidget {
 
 class SocialLink extends StatelessWidget {
   const SocialLink({
-    super.key, required this.assetName, required this.onTap,
+    super.key,
+    required this.assetName,
+    required this.onTap,
   });
 
   final void Function() onTap;
@@ -145,17 +150,16 @@ class SocialLink extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
-            color: secondaryBg,
-            borderRadius: BorderRadius.circular(8)
-        ),
+            color: secondaryBg, borderRadius: BorderRadius.circular(8)),
         height: 50,
         width: 50,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: Image.asset("assets/images/${assetName}.png",),
+          child: Image.asset(
+            "assets/images/${assetName}.png",
+          ),
         ),
       ),
     );
   }
 }
-
