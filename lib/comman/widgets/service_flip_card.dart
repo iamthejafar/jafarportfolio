@@ -1,13 +1,11 @@
-
-
 import 'package:flip_card/flip_card.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../core/theme/colors.dart';
-
 
 class ServiceFlipCard extends StatefulWidget {
   const ServiceFlipCard({
@@ -64,12 +62,22 @@ class _ServiceFlipCardState extends State<ServiceFlipCard> {
               children: [
                 Gap(2),
                 SizedBox(
-                    height: widget.cardHeight * 0.6,
-                    child: Image.asset(
-                      "assets/animations/${widget.imageName}",
-                      fit: BoxFit.fitHeight,
-                      height: widget.cardWidth * 0.6,
-                    ),
+                  height: widget.cardHeight * 0.6,
+                  child: Image.asset(
+                    "assets/animations/${widget.imageName}",
+                    fit: BoxFit.fitHeight,
+                    height: widget.cardWidth * 0.6,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Shimmer.fromColors(
+                        baseColor: Colors.grey[300]!,
+                        highlightColor: Colors.grey[100]!,
+                        child: Container(
+                          height: widget.cardWidth * 0.6,
+                          color: Colors.white,
+                        ),
+                      );
+                    },
+                  ),
                 ),
                 const Gap(10),
                 Text(
@@ -106,8 +114,9 @@ class _ServiceFlipCardState extends State<ServiceFlipCard> {
                 for (final item in widget.technologies)
                   Text(
                     "• $item",
-                    style:
-                    GoogleFonts.ibmPlexMono(fontSize: 20, color: widget.flipColor ? primaryBg : secondaryBg),
+                    style: GoogleFonts.ibmPlexMono(
+                        fontSize: 20,
+                        color: widget.flipColor ? primaryBg : secondaryBg),
                   ),
               ],
             ),

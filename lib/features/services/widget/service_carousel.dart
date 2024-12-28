@@ -18,7 +18,7 @@ class ServiceCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterCarousel(
-      options: CarouselOptions(
+      options: FlutterCarouselOptions(
         autoPlayAnimationDuration: Duration(milliseconds: 1000),
         autoPlay: true,
         autoPlayInterval: const Duration(seconds: 3),
@@ -26,9 +26,12 @@ class ServiceCarousel extends StatelessWidget {
         viewportFraction: 20,
         showIndicator: true,
         floatingIndicator: false,
-        slideIndicator: const CircularSlideIndicator(
-            // currentIndicatorColor: brownColor,
-            // indicatorBackgroundColor: greyColor
+        slideIndicator:  CircularSlideIndicator(
+          slideIndicatorOptions: const SlideIndicatorOptions(
+            currentIndicatorColor: brownColor,
+            indicatorBackgroundColor: greyColor
+          )
+
         ),
       ),
       items: [
