@@ -50,6 +50,44 @@ class ExperienceDesktopWidget extends StatelessWidget {
                         crossAxisAlignment : CrossAxisAlignment.start,
                         children: [
                           Text(
+                            "Software Developer | Flutter",
+                            style: GoogleFonts.raleway(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                              color: primaryBg,
+                            ),
+                          ),
+                          Text(
+                            "Wishtales AI",
+                            style: GoogleFonts.ibmPlexMono(
+                              fontSize: 18,
+                              color: brownColor,
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Text(
+                              "Sept 2024 - Present",
+                              style: GoogleFonts.ibmPlexMono(
+                                fontSize: 14,
+                                color: greyColor,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Gap(10),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: lightBlueColor,
+                          borderRadius: BorderRadius.circular(12)
+                      ),
+                      padding: EdgeInsets.all(12),
+                      child: Column(
+                        crossAxisAlignment : CrossAxisAlignment.start,
+                        children: [
+                          Text(
                             "Software Engineer | Flutter",
                             style: GoogleFonts.raleway(
                               fontSize: 24,
@@ -67,7 +105,7 @@ class ExperienceDesktopWidget extends StatelessWidget {
                           Align(
                             alignment: Alignment.bottomRight,
                             child: Text(
-                              "Jan 2024 - Present",
+                              "Jan 2024 - Sept 2024",
                               style: GoogleFonts.ibmPlexMono(
                                 fontSize: 14,
                                 color: greyColor,

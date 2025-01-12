@@ -40,7 +40,7 @@ class ServiceCarousel extends StatelessWidget {
           child: ServiceFlipCard(
             cardHeight: cardHeight,
             cardWidth: cardWidth,
-            technologies: const ["Flutter", "Kotlin", " Jetpack Compose"],
+            technologies: const ["Flutter", "Kotlin", "Jetpack Compose"],
             title: 'Mobile App Development',
             imageName: 'mobile.gif',
           ),
