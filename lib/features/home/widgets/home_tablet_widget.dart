@@ -8,11 +8,11 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../constants.dart';
 import '../../../core/theme/colors.dart';
 import 'home_desktop_widget.dart';
+
 class HomeTabletWidget extends StatelessWidget {
   const HomeTabletWidget({
     super.key,
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +37,13 @@ class HomeTabletWidget extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('I am Jafar Jalali',
+                      Text(
+                        'I am Jafar Jalali',
                         style: GoogleFonts.raleway(
                             fontSize: 44,
                             fontWeight: FontWeight.w700,
-                            color: secondaryBg),),
+                            color: secondaryBg),
+                      ),
                       DefaultTextStyle(
                         style: GoogleFonts.ibmPlexMono(
                             fontSize: 16, color: greyColor),
@@ -49,16 +51,18 @@ class HomeTabletWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             SizedBox(
-                              height:30,
-                              child: Image.asset('assets/images/caret.png'),),
+                              height: 30,
+                              child: Image.asset('assets/images/caret.png'),
+                            ),
                             Gap(10),
                             AnimatedTextKit(
                               animatedTexts: [
                                 TypewriterAnimatedText(
-                                    'A Mobile App Developer',
+                                    'Aspiring Software Engineer',
                                     speed: Duration(milliseconds: 100)),
-                                TypewriterAnimatedText(
-                                    'Specialized in Flutter',
+                                TypewriterAnimatedText('A Mobile App Developer',
+                                    speed: Duration(milliseconds: 100)),
+                                TypewriterAnimatedText('Specialized in Flutter',
                                     speed: Duration(milliseconds: 100)),
                               ],
                             ),
@@ -71,9 +75,10 @@ class HomeTabletWidget extends StatelessWidget {
                           SocialLink(
                             assetName: "github",
                             onTap: () async {
-                              final url = Uri.parse("https://github.com/iamthejafar");
+                              final url =
+                                  Uri.parse("https://github.com/iamthejafar");
 
-                              if(await canLaunchUrl(url)){
+                              if (await canLaunchUrl(url)) {
                                 await launchUrl(url);
                               }
                             },
@@ -82,9 +87,10 @@ class HomeTabletWidget extends StatelessWidget {
                           SocialLink(
                             assetName: "linkedin",
                             onTap: () async {
-                              final url = Uri.parse("https://www.linkedin.com/in/jafarjalali128/");
+                              final url = Uri.parse(
+                                  "https://www.linkedin.com/in/jafarjalali128/");
 
-                              if(await canLaunchUrl(url)){
+                              if (await canLaunchUrl(url)) {
                                 await launchUrl(url);
                               }
                             },
@@ -93,9 +99,10 @@ class HomeTabletWidget extends StatelessWidget {
                           SocialLink(
                             assetName: "leetcode",
                             onTap: () async {
-                              final url = Uri.parse("https://leetcode.com/u/jafarjalali128/");
+                              final url = Uri.parse(
+                                  "https://leetcode.com/u/jafarjalali128/");
 
-                              if(await canLaunchUrl(url)){
+                              if (await canLaunchUrl(url)) {
                                 await launchUrl(url);
                               }
                             },
@@ -104,9 +111,10 @@ class HomeTabletWidget extends StatelessWidget {
                           SocialLink(
                             assetName: "x",
                             onTap: () async {
-                              final url = Uri.parse("https://x.com/iamthejafar");
+                              final url =
+                                  Uri.parse("https://x.com/iamthejafar");
 
-                              if(await canLaunchUrl(url)){
+                              if (await canLaunchUrl(url)) {
                                 await launchUrl(url);
                               }
                             },
@@ -122,7 +130,6 @@ class HomeTabletWidget extends StatelessWidget {
                       child: CircleAvatar(
                         radius: height * 0.15,
                         backgroundImage: Image.asset(profileString).image,
-
                       ),
                     ),
                   )
@@ -135,4 +142,3 @@ class HomeTabletWidget extends StatelessWidget {
     );
   }
 }
-

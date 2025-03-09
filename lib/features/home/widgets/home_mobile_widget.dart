@@ -53,10 +53,11 @@ class HomeMobileWidget extends StatelessWidget {
                             AnimatedTextKit(
                               animatedTexts: [
                                 TypewriterAnimatedText(
-                                    'A Mobile App Developer',
+                                    'Aspiring Software Engineer',
                                     speed: Duration(milliseconds: 100)),
-                                TypewriterAnimatedText(
-                                    'Specialized in Flutter',
+                                TypewriterAnimatedText('A Mobile App Developer',
+                                    speed: Duration(milliseconds: 100)),
+                                TypewriterAnimatedText('Specialized in Flutter',
                                     speed: Duration(milliseconds: 100)),
                               ],
                             ),

@@ -56,7 +56,7 @@ class _ServiceDesktopWidgetState extends State<ServiceDesktopWidget> {
                           child: ServiceFlipCard(
                             cardHeight: height * 0.40,
                             cardWidth: 300,
-                            technologies: const ["Flutter", "Kotlin", " Jetpack Compose"],
+                            technologies: const ["Flutter", "Kotlin", "Jetpack Compose"],
                             title: 'Mobile App Development',
                             imageName: 'mobile.gif',
                           ),

@@ -54,6 +54,9 @@ class HomeDesktopWidget extends StatelessWidget {
                             Gap(10),
                             AnimatedTextKit(
                               animatedTexts: [
+                                TypewriterAnimatedText(
+                                    'Aspiring Software Engineer',
+                                    speed: Duration(milliseconds: 100)),
                                 TypewriterAnimatedText('A Mobile App Developer',
                                     speed: Duration(milliseconds: 100)),
                                 TypewriterAnimatedText('Specialized in Flutter',
